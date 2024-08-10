@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwwu1hjv3w6wm"]
+
+[ext_resource type="Script" path="res://scenes/jet/jet.gd" id="1_2ib58"]
+[ext_resource type="PackedScene" uid="uid://ckiw2bdldgx6m" path="res://models/d80603a8a13b49bda90f19d80cac61d4.glb" id="1_o72pv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vbxtw"]
+size = Vector3(5, 1, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e4iim"]
+size = Vector3(11, 1, 5)
+
+[node name="jet" type="RigidBody3D"]
+gravity_scale = 0.0
+linear_damp = 3.0
+angular_damp = 3.0
+script = ExtResource("1_2ib58")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_o72pv")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1, 0)
+
+[node name="body" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0772, 1.84908)
+shape = SubResource("BoxShape3D_vbxtw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 4.116)
+shape = SubResource("BoxShape3D_e4iim")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.32246, 14.7547)
