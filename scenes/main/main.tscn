@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://mhp42hdmvsdc"]
+[gd_scene load_steps=11 format=3 uid="uid://mhp42hdmvsdc"]
 
 [ext_resource type="PackedScene" uid="uid://bwwu1hjv3w6wm" path="res://scenes/jet/jet.tscn" id="1_0h8xm"]
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_apctb"]
 [ext_resource type="Texture2D" uid="uid://bw602kdmmmyb" path="res://icon.svg" id="2_pnety"]
 [ext_resource type="PackedScene" uid="uid://ca5t28y8hxhvd" path="res://scenes/ui/ui.tscn" id="3_klmi0"]
 
@@ -16,10 +17,19 @@ background_mode = 2
 sky = SubResource("Sky_ptej4")
 tonemap_mode = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdidy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lfbhl"]
+cull_mode = 2
 albedo_texture = ExtResource("2_pnety")
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_jydw4"]
+material = SubResource("StandardMaterial3D_lfbhl")
+size = Vector2(10000, 10000)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_16jol"]
+data = PackedVector3Array(5000, 0, 5000, -5000, 0, 5000, 5000, 0, -5000, -5000, 0, 5000, -5000, 0, -5000, 5000, 0, -5000)
+
 [node name="main" type="Node3D"]
+script = ExtResource("1_apctb")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cehjv")
@@ -30,8 +40,16 @@ shadow_enabled = true
 
 [node name="jet" parent="." instance=ExtResource("1_0h8xm")]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-size = Vector3(1000, 1, 1000)
-material = SubResource("StandardMaterial3D_kdidy")
-
 [node name="ui" parent="." instance=ExtResource("3_klmi0")]
+
+[node name="floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+mesh = SubResource("PlaneMesh_jydw4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+shape = SubResource("ConcavePolygonShape3D_16jol")
+
+[node name="ground" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40159, 0)
+current = true
