@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca5t28y8hxhvd"]
+[gd_scene load_steps=4 format=3 uid="uid://ca5t28y8hxhvd"]
 
+[ext_resource type="Script" path="res://scenes/ui/ui.gd" id="1_bbykr"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://scenes/virtual_joystick/virtual_joystick_scene.tscn" id="1_ovo2o"]
 [ext_resource type="Texture2D" uid="uid://bw602kdmmmyb" path="res://icon.svg" id="2_vj01n"]
 
 [node name="ui" type="CanvasLayer"]
+script = ExtResource("1_bbykr")
 
 [node name="Virtual Joystick" parent="." instance=ExtResource("1_ovo2o")]
 offset_left = 4.0
@@ -26,3 +28,16 @@ action = "ui_right"
 position = Vector2(1700, 400)
 texture_normal = ExtResource("2_vj01n")
 action = "camSwitch"
+
+[node name="fps" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "hoga"
+horizontal_alignment = 1
+vertical_alignment = 1
