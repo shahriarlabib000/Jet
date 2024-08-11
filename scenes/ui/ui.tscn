@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca5t28y8hxhvd"]
+[gd_scene load_steps=6 format=3 uid="uid://ca5t28y8hxhvd"]
 
 [ext_resource type="Script" path="res://scenes/ui/ui.gd" id="1_bbykr"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://scenes/virtual_joystick/virtual_joystick_scene.tscn" id="1_ovo2o"]
 [ext_resource type="Texture2D" uid="uid://bw602kdmmmyb" path="res://icon.svg" id="2_vj01n"]
+[ext_resource type="Texture2D" uid="uid://6a2gjnfvgh43" path="res://image/ground.png" id="4_wmuet"]
+[ext_resource type="Texture2D" uid="uid://bjrd4bhrpeqtg" path="res://image/gauge.png" id="5_p1qv6"]
 
 [node name="ui" type="CanvasLayer"]
 script = ExtResource("1_bbykr")
@@ -41,3 +43,34 @@ theme_override_font_sizes/font_size = 30
 text = "hoga"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="gyro" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="ground" type="TextureRect" parent="gyro"]
+layout_mode = 0
+offset_left = -80.0
+offset_top = 81.0
+offset_right = -40.0
+offset_bottom = 121.0
+scale = Vector2(5, 5)
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("4_wmuet")
+expand_mode = 3
+
+[node name="measure" type="TextureRect" parent="gyro"]
+layout_mode = 0
+offset_left = -80.0
+offset_top = 81.0
+offset_right = -40.0
+offset_bottom = 121.0
+scale = Vector2(5, 5)
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("5_p1qv6")
+expand_mode = 3

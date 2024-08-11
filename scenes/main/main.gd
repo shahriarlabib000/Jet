@@ -15,3 +15,5 @@ func _process(_delta: float) -> void:
 		cams[camidx].current=true
 		camidx+=1
 		camidx%=cams.size()
+	$ui/gyro/measure.rotation=-$jet.rotation.z
+	#$ui/gyro/measure.position.y += $jet.rotation.x/5
