@@ -36,9 +36,11 @@ environment = SubResource("Environment_cehjv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_energy = 0.5
 shadow_enabled = true
 
 [node name="jet" parent="." instance=ExtResource("1_0h8xm")]
+speed = 200
 
 [node name="ui" parent="." instance=ExtResource("3_klmi0")]
 
@@ -50,6 +52,5 @@ mesh = SubResource("PlaneMesh_jydw4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
 shape = SubResource("ConcavePolygonShape3D_16jol")
 
-[node name="ground" type="Camera3D" parent="."]
+[node name="ground" type="Camera3D" parent="." groups=["cam"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40159, 0)
-current = true

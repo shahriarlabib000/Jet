@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwwu1hjv3w6wm"]
+[gd_scene load_steps=9 format=3 uid="uid://bwwu1hjv3w6wm"]
 
 [ext_resource type="Script" path="res://scenes/jet/jet.gd" id="1_2ib58"]
 [ext_resource type="PackedScene" uid="uid://ckiw2bdldgx6m" path="res://models/d80603a8a13b49bda90f19d80cac61d4.glb" id="1_o72pv"]
+[ext_resource type="Script" path="res://scenes/jet/firstPerson.gd" id="3_xr34w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vbxtw"]
 size = Vector3(5, 1, 12)
@@ -39,14 +40,15 @@ shape = SubResource("BoxShape3D_vbxtw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 4.116)
 shape = SubResource("BoxShape3D_e4iim")
 
-[node name="thirdPerson" type="Camera3D" parent="."]
+[node name="thirdPerson" type="Camera3D" parent="." groups=["cam"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.32246, 14.7547)
 current = true
 far = 40000.0
 
-[node name="firstPerson" type="Camera3D" parent="."]
+[node name="firstPerson" type="Camera3D" parent="." groups=["cam"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.18542, -2.16188)
 far = 40000.0
+script = ExtResource("3_xr34w")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 amount = 500

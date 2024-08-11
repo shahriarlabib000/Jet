@@ -30,6 +30,10 @@ rRight={
 "deadzone": 0.5,
 "events": []
 }
+camSwitch={
+"deadzone": 0.5,
+"events": []
+}
 
 [physics]
 

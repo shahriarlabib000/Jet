@@ -6,6 +6,11 @@
 [node name="ui" type="CanvasLayer"]
 
 [node name="Virtual Joystick" parent="." instance=ExtResource("1_ovo2o")]
+offset_left = 4.0
+offset_top = -454.0
+offset_right = 304.0
+offset_bottom = -154.0
+scale = Vector2(1.5, 1.5)
 
 [node name="left" type="TouchScreenButton" parent="."]
 position = Vector2(1600, 600)
@@ -16,3 +21,8 @@ action = "ui_left"
 position = Vector2(1800, 600)
 texture_normal = ExtResource("2_vj01n")
 action = "ui_right"
+
+[node name="camSwitch" type="TouchScreenButton" parent="."]
+position = Vector2(1700, 400)
+texture_normal = ExtResource("2_vj01n")
+action = "camSwitch"

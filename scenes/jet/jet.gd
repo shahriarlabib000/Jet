@@ -20,4 +20,3 @@ func _physics_process(delta: float) -> void:
 	dir=Input.get_axis("rRight","rLeft")
 	apply_torque(basis.z * delta * dir * rollSpeed)
 	$thirdPerson.global_rotation.z=0
-	
