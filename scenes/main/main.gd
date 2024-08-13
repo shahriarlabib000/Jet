@@ -9,7 +9,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	$ground.fov=10#(100/$ground.position.distance_to($jet.position))* 100
+	$ground.fov=(100/$ground.position.distance_to($jet.position))* 100
+	$ground.fov=clamp($ground.fov,1,70)
 	$ground.look_at($jet.position)
 	if Input.is_action_just_pressed("camSwitch"):
 		cams[camidx].current=true

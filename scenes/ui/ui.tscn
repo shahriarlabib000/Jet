@@ -74,3 +74,12 @@ scale = Vector2(5, 5)
 pivot_offset = Vector2(20, 20)
 texture = ExtResource("5_p1qv6")
 expand_mode = 3
+
+[node name="VSlider" type="VSlider" parent="."]
+offset_left = 1486.0
+offset_top = 384.0
+offset_right = 1543.0
+offset_bottom = 1007.0
+max_value = 1000.0
+
+[connection signal="value_changed" from="VSlider" to="." method="_on_v_slider_value_changed"]
