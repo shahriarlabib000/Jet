@@ -1,16 +1,10 @@
 extends CanvasLayer
 
 
-static  var speed:int=0
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+static  var speed:float=0
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$fps.text=str(Engine.get_frames_per_second())
-
 
 func _on_v_slider_value_changed(value: float) -> void:
 	speed=value

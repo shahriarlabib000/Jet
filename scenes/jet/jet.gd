@@ -16,6 +16,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 func _physics_process(delta: float) -> void:
 	dir=Input.get_axis("ui_right","ui_left")
 	apply_torque(basis.y * delta * dir * turnSpeed)
+	apply_torque(basis.z * delta * dir * turnSpeed/5)
 	dir=Input.get_axis("ui_up","ui_down")
 	apply_torque(basis.x * delta * dir * turnSpeed)
 	dir=Input.get_axis("rRight","rLeft")
