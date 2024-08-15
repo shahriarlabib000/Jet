@@ -16,13 +16,15 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 func _physics_process(delta: float) -> void:
 	dir=Input.get_axis("ui_right","ui_left")
 	apply_torque(basis.y * delta * dir * turnSpeed)
+	if(abs(global_rotation_degrees.z)< 10):
+		apply_torque(basis.z * delta * dir * turnSpeed)
 	
 	dir=Input.get_axis("ui_up","ui_down")
 	apply_torque(basis.x * delta * dir * turnSpeed)
 	
 	dir=Input.get_axis("rRight","rLeft")
 	apply_torque(basis.z * delta * dir * rollSpeed)
-	$thirdPerson.global_rotation.z=0
+	$tppNode.global_rotation.z=0
 	if uiScript.speed<=200:
 		gravity_scale=0.3
 		#apply_central_impulse(basis.z *delta * 90*5* -uiScript.speed)
