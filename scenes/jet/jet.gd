@@ -37,8 +37,8 @@ func _physics_process(delta: float) -> void:
 	$tppNode.global_rotation.z=0
 	
 	
-	if uiScript.speed<=200:
-		gravity_scale=0.3
+	#if uiScript.speed<=200:
+		#gravity_scale=0.3
 		#apply_central_impulse(basis.z *delta * 90*5* -uiScript.speed)
-	else :
-		gravity_scale=0
+	#else :
+		#gravity_scale=0
