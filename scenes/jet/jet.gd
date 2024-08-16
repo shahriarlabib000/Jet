@@ -1,9 +1,13 @@
 extends RigidBody3D
 
+
+signal crashed
+
 @export var speed:int=500
 @export var rollSpeed:int=2000
 @export var turnSpeed:int=1500
 @onready var uiScript=preload("res://scenes/ui/ui.gd")
+@onready var missile=preload("res://scenes/missile/missile.tscn")
 var dir:float=0
 var roll:bool
 
@@ -36,9 +40,19 @@ func _physics_process(delta: float) -> void:
 	
 	$tppNode.global_rotation.z=0
 	
-	
+	if Input.is_action_just_pressed("missile"):
+		var inst=missile.instantiate()
+		inst.position=$missileNode.position
+		add_child(inst)
+		
 	#if uiScript.speed<=200:
 		#gravity_scale=0.3
 		#apply_central_impulse(basis.z *delta * 90*5* -uiScript.speed)
 	#else :
 		#gravity_scale=0
+
+
+func _on_area_3d_body_entered(body):
+	if body.is_in_group("terrain"):
+		emit_signal("crashed")
+	

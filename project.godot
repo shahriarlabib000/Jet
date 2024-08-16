@@ -36,6 +36,14 @@ camSwitch={
 "deadzone": 0.5,
 "events": []
 }
+missile={
+"deadzone": 0.5,
+"events": []
+}
+replay={
+"deadzone": 0.5,
+"events": []
+}
 
 [physics]
 

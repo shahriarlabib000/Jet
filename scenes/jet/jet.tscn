@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=4 uid="uid://bwwu1hjv3w6wm"]
+[gd_scene load_steps=99 format=4 uid="uid://bwwu1hjv3w6wm"]
 
 [ext_resource type="Script" path="res://scenes/jet/jet.gd" id="1_2ib58"]
 [ext_resource type="Texture2D" uid="uid://cmqea154i0muv" path="res://models/lockheed_martin_f-16ef_fighting_falcon_0.jpg" id="3_lcrm5"]
@@ -1149,6 +1149,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mr844")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_mdicp"]
+size = Vector3(20, 5, 20)
+
 [node name="jet" type="RigidBody3D"]
 gravity_scale = 0.0
 linear_damp = 3.0
@@ -1333,3 +1336,13 @@ offset_left = 734.0
 offset_top = 178.0
 offset_right = 774.0
 offset_bottom = 201.0
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_mdicp")
+
+[node name="missileNode" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4506, -1.29153, 1.38218)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

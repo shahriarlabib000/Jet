@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccmn6sbtcrmx3"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ysqg6"]
+angle_min = 1.07288e-05
+angle_max = 158.3
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 100.0
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 20.0
+gravity = Vector3(0, -4.3, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yguti"]
+blend_mode = 1
+albedo_color = Color(1, 0.223529, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_c7w3g"]
+material = SubResource("StandardMaterial3D_yguti")
+radius = 3.0
+height = 6.0
+
+[node name="crash_particle" type="GPUParticles3D"]
+emitting = false
+amount = 10
+one_shot = true
+explosiveness = 0.5
+process_material = SubResource("ParticleProcessMaterial_ysqg6")
+draw_pass_1 = SubResource("SphereMesh_c7w3g")
