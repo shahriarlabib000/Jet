@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 	#$ui/gyro/measure.position.y += $jet.rotation.x/5
 
 
-func _on_jet_crashed():
+func _on_jet_crashed() -> void:
 	$ui.hide()
 	$death.show()
 	$jet.hide()

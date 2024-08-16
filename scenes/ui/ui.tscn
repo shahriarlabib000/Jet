@@ -80,9 +80,7 @@ offset_left = 1486.0
 offset_top = 384.0
 offset_right = 1543.0
 offset_bottom = 1007.0
-min_value = 300.0
 max_value = 1000.0
-value = 300.0
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 6

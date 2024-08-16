@@ -41,18 +41,13 @@ func _physics_process(delta: float) -> void:
 	$tppNode.global_rotation.z=0
 	
 	if Input.is_action_just_pressed("missile"):
-		var inst=missile.instantiate()
-		inst.position=$missileNode.position
-		add_child(inst)
+		var inst:RigidBody3D=missile.instantiate()
+		inst.global_position=$missileNode.global_position
+		get_node("/root/main").add_child(inst)
 		
-	#if uiScript.speed<=200:
-		#gravity_scale=0.3
-		#apply_central_impulse(basis.z *delta * 90*5* -uiScript.speed)
-	#else :
-		#gravity_scale=0
 
 
-func _on_area_3d_body_entered(body):
+func _on_area_3d_body_entered(body:PhysicsBody3D) -> void:
 	if body.is_in_group("terrain"):
-		emit_signal("crashed")
+		crashed.emit()
 	

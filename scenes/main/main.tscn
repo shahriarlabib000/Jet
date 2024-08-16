@@ -262,11 +262,15 @@ speed = 200
 
 [node name="ui" parent="." instance=ExtResource("3_klmi0")]
 
+[node name="death" parent="." instance=ExtResource("4_d7ef6")]
+visible = false
+
 [node name="ground" type="Camera3D" parent="." groups=["cam"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40159, 0)
 far = 400000.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ground"]
+visible = false
 mesh = SubResource("BoxMesh_x0gum")
 
 [node name="terrain" type="Node3D" parent="."]
@@ -335,8 +339,5 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="terrain/Sketchfab_model/Root/UCX_Terrain/UCX_Terrain_2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_lp81c")
-
-[node name="death" parent="." instance=ExtResource("4_d7ef6")]
-visible = false
 
 [connection signal="crashed" from="jet" to="." method="_on_jet_crashed"]
