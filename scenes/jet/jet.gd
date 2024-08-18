@@ -6,7 +6,7 @@ signal crashed
 @export var speed:int=500
 @export var rollSpeed:int=2000
 @export var turnSpeed:int=1500
-@onready var uiScript=preload("res://scenes/ui/ui.gd")
+@onready var uiScript=preload("res://scenes/UIs/ui/ui.gd")
 @onready var missile=preload("res://scenes/missile/missile.tscn")
 var dir:float=0
 var roll:bool

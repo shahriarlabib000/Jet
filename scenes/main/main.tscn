@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bwwu1hjv3w6wm" path="res://scenes/jet/jet.tscn" id="1_0h8xm"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_apctb"]
-[ext_resource type="PackedScene" uid="uid://ca5t28y8hxhvd" path="res://scenes/ui/ui.tscn" id="3_klmi0"]
-[ext_resource type="PackedScene" uid="uid://1tfejxwfsnha" path="res://scenes/death/death.tscn" id="4_d7ef6"]
+[ext_resource type="PackedScene" uid="uid://ca5t28y8hxhvd" path="res://scenes/UIs/ui/ui.tscn" id="3_klmi0"]
+[ext_resource type="PackedScene" uid="uid://1tfejxwfsnha" path="res://scenes/UIs/death/death.tscn" id="4_d7ef6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hme4p"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -260,11 +260,6 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.83147, 0)
 speed = 200
 
-[node name="ui" parent="." instance=ExtResource("3_klmi0")]
-
-[node name="death" parent="." instance=ExtResource("4_d7ef6")]
-visible = false
-
 [node name="ground" type="Camera3D" parent="." groups=["cam"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40159, 0)
 far = 400000.0
@@ -339,5 +334,12 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="terrain/Sketchfab_model/Root/UCX_Terrain/UCX_Terrain_2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_lp81c")
+
+[node name="UIs" type="Node2D" parent="."]
+
+[node name="ui" parent="UIs" instance=ExtResource("3_klmi0")]
+
+[node name="death" parent="UIs" instance=ExtResource("4_d7ef6")]
+visible = false
 
 [connection signal="crashed" from="jet" to="." method="_on_jet_crashed"]

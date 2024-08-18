@@ -17,13 +17,13 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("replay"):
 		get_tree().reload_current_scene()
 		
-	$ui/gyro/measure.rotation=-$jet.rotation.z
+	$UIs/ui/gyro/measure.rotation=-$jet.rotation.z
 	#$ui/gyro/measure.position.y += $jet.rotation.x/5
 
 
 func _on_jet_crashed() -> void:
-	$ui.hide()
-	$death.show()
+	$UIs/ui.hide()
+	$UIs/death.show()
 	$jet.hide()
 	$jet.process_mode=Node.PROCESS_MODE_DISABLED
 	var inst:GPUParticles3D= crashed_particle.instantiate()
