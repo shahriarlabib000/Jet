@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccmn6sbtcrmx3"]
+[gd_scene load_steps=5 format=3 uid="uid://ccmn6sbtcrmx3"]
+
+[ext_resource type="Script" path="res://scenes/crashP/crash_particle.gd" id="1_8nhv8"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ysqg6"]
 angle_min = 1.07288e-05
@@ -25,3 +27,6 @@ one_shot = true
 explosiveness = 0.5
 process_material = SubResource("ParticleProcessMaterial_ysqg6")
 draw_pass_1 = SubResource("SphereMesh_c7w3g")
+script = ExtResource("1_8nhv8")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

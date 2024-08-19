@@ -2,12 +2,12 @@ extends RigidBody3D
 
 var crashP=preload("res://scenes/crashP/crash_particle.tscn")
 @onready var jet=get_node("/root/main/jet")
+
 func _ready() -> void:
 	global_basis=jet.global_basis
 	
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
-	state.apply_central_force(jet.global_basis.z * -500)
-	#pass
+	state.apply_central_force(basis.z * -500)
 
 
 func _on_area_3d_body_entered(body:PhysicsBody3D) -> void:
