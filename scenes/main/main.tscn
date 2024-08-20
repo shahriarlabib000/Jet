@@ -258,7 +258,6 @@ shadow_enabled = true
 
 [node name="jet" parent="." instance=ExtResource("1_0h8xm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.83147, 0)
-speed = 200
 
 [node name="ground" type="Camera3D" parent="." groups=["cam"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40159, 0)

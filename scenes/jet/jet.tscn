@@ -1,6 +1,7 @@
-[gd_scene load_steps=99 format=4 uid="uid://bwwu1hjv3w6wm"]
+[gd_scene load_steps=100 format=4 uid="uid://bwwu1hjv3w6wm"]
 
 [ext_resource type="Script" path="res://scenes/jet/jet.gd" id="1_2ib58"]
+[ext_resource type="Texture2D" uid="uid://bufotp0axvxd1" path="res://image/smoke.png" id="3_5vosb"]
 [ext_resource type="Texture2D" uid="uid://cmqea154i0muv" path="res://models/lockheed_martin_f-16ef_fighting_falcon_0.jpg" id="3_lcrm5"]
 [ext_resource type="Script" path="res://scenes/jet/firstPerson.gd" id="3_xr34w"]
 [ext_resource type="Texture2D" uid="uid://b0qxcut7ltmsh" path="res://models/lockheed_martin_f-16ef_fighting_falcon_1.jpg" id="4_dfqd1"]
@@ -17,7 +18,9 @@ size = Vector3(15, 1, 5)
 gravity = Vector3(0, 0, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kns0"]
-albedo_color = Color(1, 0, 0, 1)
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("3_5vosb")
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
@@ -1157,7 +1160,6 @@ gravity_scale = 0.0
 linear_damp = 3.0
 angular_damp = 8.0
 script = ExtResource("1_2ib58")
-speed = 2000
 rollSpeed = 15000
 turnSpeed = 12000
 
@@ -1183,8 +1185,10 @@ script = ExtResource("3_xr34w")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.427233, 8.89983)
-amount = 500
-lifetime = 5.0
+cast_shadow = 0
+amount = 1000
+lifetime = 8.0
+fixed_fps = 60
 visibility_aabb = AABB(-4, -4, -20, 8, 8, 20)
 process_material = SubResource("ParticleProcessMaterial_el7ce")
 draw_pass_1 = SubResource("QuadMesh_1lgn5")

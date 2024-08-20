@@ -3,7 +3,6 @@ extends RigidBody3D
 
 signal crashed
 
-@export var speed:int=500
 @export var rollSpeed:int=2000
 @export var turnSpeed:int=1500
 @onready var uiScript=preload("res://scenes/UIs/ui/ui.gd")
@@ -48,6 +47,6 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_3d_body_entered(body:PhysicsBody3D) -> void:
-	if body.is_in_group("terrain"):
+	if body.is_in_group("terrain") and uiScript.speed>500:
 		crashed.emit()
 	
