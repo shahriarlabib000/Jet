@@ -1156,6 +1156,7 @@ shadow_mesh = SubResource("ArrayMesh_mr844")
 size = Vector3(20, 5, 20)
 
 [node name="jet" type="RigidBody3D"]
+collision_layer = 2
 gravity_scale = 0.0
 linear_damp = 3.0
 angular_damp = 8.0

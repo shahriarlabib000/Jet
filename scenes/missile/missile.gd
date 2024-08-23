@@ -8,13 +8,19 @@ func _ready() -> void:
 	
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	state.apply_central_force(basis.z * -500)
+	
+func _physics_process(_delta: float) -> void:
+	if $RayCast3D.is_colliding():
+		collided($RayCast3D.get_collider(),$RayCast3D.get_collision_point())
+		
 
 
-func _on_area_3d_body_entered(body:PhysicsBody3D) -> void:
-	if body.is_in_group("terrain"):
+func collided(node:Node3D,pos:Vector3=global_position) -> void:
+	if node.is_in_group("terrain"):
 		var inst:GPUParticles3D=crashP.instantiate()
 		get_parent().add_child(inst)
-		inst.global_position=global_position
+		inst.global_position=pos
 		inst.emitting=true
+		$Audio.play()
 		queue_free()
 		
