@@ -17,10 +17,16 @@ func _physics_process(_delta: float) -> void:
 
 func collided(node:Node3D,pos:Vector3=global_position) -> void:
 	if node.is_in_group("terrain"):
+		process_mode=Node.PROCESS_MODE_DISABLED
 		var inst:GPUParticles3D=crashP.instantiate()
 		get_parent().add_child(inst)
 		inst.global_position=pos
 		inst.emitting=true
 		$Audio.play()
-		queue_free()
+		hide()
+		#queue_free()
 		
+
+
+func _on_audio_finished() -> void:
+	queue_free()
