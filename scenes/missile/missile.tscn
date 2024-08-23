@@ -25,5 +25,9 @@ target_position = Vector3(0, 0, -30)
 
 [node name="Audio" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_a0gnj")
+volume_db = 30.0
+unit_size = 35.12
+max_db = 3.886
+panning_strength = 0.7
 
 [connection signal="finished" from="Audio" to="." method="_on_audio_finished"]
