@@ -1,7 +1,8 @@
 extends RigidBody3D
 
 var crashP=preload("res://scenes/crashP/crash_particle.tscn")
-@onready var jet=get_node("/root/main/jet")
+@onready var jet:RigidBody3D=get_node("/root/main/jet")
+@onready var audio:AudioStreamPlayer3D=get_node("/root/main/explode")
 
 func _ready() -> void:
 	global_basis=jet.global_basis
@@ -24,11 +25,6 @@ func collided(node:Node3D,pos:Vector3=global_position) -> void:
 		inst.emitting=true
 		set_axis_velocity(basis.z)
 		hide()
-		$Audio.play()
-		$Audio.global_position=pos
-		$Audio.top_level=true
-		
-
-
-func _on_audio_finished() -> void:
-	queue_free()
+		audio.play()
+		audio.global_position=pos
+		queue_free()
