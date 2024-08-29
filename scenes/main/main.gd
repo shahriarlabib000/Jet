@@ -1,14 +1,11 @@
 extends Node3D
 
-
-
 var crashed_particle= preload("res://scenes/crashP/crash_particle.tscn")
 var camidx:int=1
 @onready var cams=get_tree().get_nodes_in_group("cam")
 
 func _process(_delta: float) -> void:
-	$ground.fov=(100/$ground.position.distance_to($jet.position))* 100
-	$ground.fov=clamp($ground.fov,1,70)
+	$ground.fov=clamp((100/$ground.position.distance_to($jet.position))* 100,1,70)
 	$ground.look_at($jet.position)
 	if Input.is_action_just_pressed("camSwitch"):
 		cams[camidx].current=true

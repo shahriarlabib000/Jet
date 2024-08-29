@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://mhp42hdmvsdc"]
+[gd_scene load_steps=30 format=4 uid="uid://mhp42hdmvsdc"]
 
 [ext_resource type="PackedScene" uid="uid://bwwu1hjv3w6wm" path="res://scenes/jet/jet.tscn" id="1_0h8xm"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_apctb"]
@@ -18,13 +18,6 @@ background_mode = 2
 sky = SubResource("Sky_ptej4")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3j8y"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_x0gum"]
-material = SubResource("StandardMaterial3D_g3j8y")
-size = Vector3(5, 5, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1hnl"]
 resource_name = "material"
@@ -263,10 +256,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.83147, 0)
 [node name="ground" type="Camera3D" parent="." groups=["cam"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40159, 0)
 far = 400000.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ground"]
-visible = false
-mesh = SubResource("BoxMesh_x0gum")
 
 [node name="terrain" type="Node3D" parent="."]
 

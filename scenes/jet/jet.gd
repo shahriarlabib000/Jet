@@ -44,6 +44,7 @@ func _physics_process(delta: float) -> void:
 		inst.global_position=$missileNode.global_position
 		get_node("/root/main").add_child(inst)
 		
+	$stream.get_active_material(0).set_shader_parameter("intensity",(uiScript.speed/uiScript.max_speed)*5.)
 
 
 func _on_area_3d_body_entered(body:PhysicsBody3D) -> void:

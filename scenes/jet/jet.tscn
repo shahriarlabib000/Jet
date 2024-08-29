@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=4 uid="uid://bwwu1hjv3w6wm"]
+[gd_scene load_steps=103 format=4 uid="uid://bwwu1hjv3w6wm"]
 
 [ext_resource type="Script" path="res://scenes/jet/jet.gd" id="1_2ib58"]
 [ext_resource type="Texture2D" uid="uid://bufotp0axvxd1" path="res://image/smoke.png" id="3_5vosb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b0qxcut7ltmsh" path="res://models/lockheed_martin_f-16ef_fighting_falcon_1.jpg" id="4_dfqd1"]
 [ext_resource type="Texture2D" uid="uid://dmytbmjepe47x" path="res://models/lockheed_martin_f-16ef_fighting_falcon_2.jpg" id="5_hxay6"]
 [ext_resource type="Texture2D" uid="uid://bbs7u2o0i6hbv" path="res://models/lockheed_martin_f-16ef_fighting_falcon_3.jpg" id="6_wfisx"]
+[ext_resource type="Shader" path="res://scenes/jet/stream.gdshader" id="8_d28x7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vbxtw"]
 size = Vector3(5, 1, 15)
@@ -1155,6 +1156,35 @@ shadow_mesh = SubResource("ArrayMesh_mr844")
 [sub_resource type="BoxShape3D" id="BoxShape3D_mdicp"]
 size = Vector3(20, 5, 20)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tgosf"]
+render_priority = 0
+shader = ExtResource("8_d28x7")
+shader_parameter/colorA = Color(1, 0.635294, 0, 1)
+shader_parameter/colorB = Color(0, 0, 0.913725, 1)
+shader_parameter/intensity = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nnft1"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1),
+"attribute_data": PackedByteArray("mXn/v/9//7+Zef///3///5l5/3//f/9/MnP/vzJz//8yc/9/zGz/v8xs///MbP9/Zmb/v2Zm//9mZv9//1//v/9f////X/9/mVn/v5lZ//+ZWf9/MlP/vzJT//8yU/9/zEz/v8xM///MTP9/Zkb/v2ZG//9mRv9//z//v/8/////P/9/mTn/v5k5//+ZOf9/MjP/vzIz//8yM/9/zCz/v8ws///MLP9/Zib/v2Ym//9mJv9//x//v/8f////H/9/mRn/v5kZ//+ZGf9/MxP/vzMT//8zE/9/zAz/v8wM///MDP9/Zgb/v2YG//9mBv9/AAD/vwAA//8AAP9/"),
+"format": 34896613399,
+"index_count": 240,
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAAAAAAFAAEABgAAAAcABwAAAAIACAAEAAYABgAEAAAACQAGAAoACgAGAAcACwAIAAkACQAIAAYADAAJAA0ADQAJAAoADgALAAwADAALAAkADwAMABAAEAAMAA0AEQAOAA8ADwAOAAwAEgAPABMAEwAPABAAFAARABIAEgARAA8AFQASABYAFgASABMAFwAUABUAFQAUABIAGAAVABkAGQAVABYAGgAXABgAGAAXABUAGwAYABwAHAAYABkAHQAaABsAGwAaABgAHgAbAB8AHwAbABwAIAAdAB4AHgAdABsAIQAeACIAIgAeAB8AIwAgACEAIQAgAB4AJAAhACUAJQAhACIAJgAjACQAJAAjACEAJwAkACgAKAAkACUAKQAmACcAJwAmACQAKgAnACsAKwAnACgALAApACoAKgApACcALQAqAC4ALgAqACsALwAsAC0ALQAsACoAMAAtADEAMQAtAC4AMgAvADAAMAAvAC0AMwAwADQANAAwADEANQAyADMAMwAyADAANgAzADcANwAzADQAOAA1ADYANgA1ADMAOQA2ADoAOgA2ADcAOwA4ADkAOQA4ADYAPAA5AD0APQA5ADoAPgA7ADwAPAA7ADkA"),
+"material": SubResource("ShaderMaterial_tgosf"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(2, 2, 0, 0),
+"vertex_count": 63,
+"vertex_data": PackedByteArray("cVhDBv9//sD/fwAA/3//v3FYQwYAAP7A/38AAAAA/79xWEMG/v/+wP9/AAD+//+/wzRyGP9/5MPDNHIYAADkw8M0chj+/+TDchjDNP9/dMhyGMM0AAB0yHIYwzT+/3TIQwZxWP9/Xs5DBnFYAABezkMGcVj//17OAAD/f/9/VNUAAP9/AABU1QAA/3///1TVQwaNp/9/Ed1DBo2nAAAR3UMGjaf//xHdchg7y/9/XeVyGDvLAABd5XIYO8v//13lwzSM5/9/C+7DNIznAAAL7sM0jOf//wvucVi7+f9/9vZxWLv5AAD29nFYu/n///b2/3////9/////f///AAD///9//v//////jae7+f9/9vaNp7v5AAD29o2nu/n///b2O8uM5/9/C+47y4znAAAL7jvLjOf//wvujOc7y/9/XeWM5zvLAABd5YznO8v//13lu/mNp/9/Ed27+Y2nAAAR3bv5jaf//xHd////f/9/VNX///9/AABU1f///3///1TVu/lxWP9/Xs67+XFYAABezrv5cVj+/17OjOfDNP9/dMiM58M0AAB0yIznwzT+/3TIO8tyGP9/5MM7y3IYAADkwzvLchj+/+TDjadDBv9//sCNp0MGAAD+wI2nQwb+//7A/38AAP9//7//fwAAAAD/v/9/AAD+//+/yh5kjwAA/3/KHmSPAAD/f8oeZI8AAP9/ajI0mWoyNJlqMjSZmkBMoJpATKCaQEyg0UvopdFL6KXRS+ilVVWpqlVVqqpVVaqq413xruNd8a7jXfGuAmYAswJmALMCZgCzHG4NtxxuDbccbg23mnZMu5p2TLuadky7/3//v/9//7//f/+/TTtkCU07ZAlNO2QJDjfjEQ434xEON+MRATP9GQEz/RkBM/0Z8S4bIvEuGyLxLhsiqiqqKqoqqiqqKqoq6CUtNOglLTToJS00TSBlP00gZT9NIGU/NRmVTTUZlU01GZVNZQ80YWUPNGFlDzRhAAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+
 [node name="jet" type="RigidBody3D"]
 gravity_scale = 0.0
 linear_damp = 3.0
@@ -1185,6 +1215,7 @@ script = ExtResource("3_xr34w")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.427233, 8.89983)
+visible = false
 cast_shadow = 0
 amount = 1000
 lifetime = 8.0
@@ -1348,5 +1379,9 @@ shape = SubResource("BoxShape3D_mdicp")
 
 [node name="missileNode" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4506, -1.29153, 1.38218)
+
+[node name="stream" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.00015521, 0.506468, 9.682)
+mesh = SubResource("ArrayMesh_nnft1")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
