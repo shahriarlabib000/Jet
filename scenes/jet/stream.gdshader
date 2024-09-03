@@ -26,7 +26,7 @@ uniform vec3 uv1_offset;
 //uniform vec3 uv2_offset;
 
 void vertex() {
-	UV = UV * uv1_scale.xy + uv1_offset.xy;
+	//UV = UV * uv1_scale.xy + uv1_offset.xy;
 	if (UV.y >0.9)
 	 VERTEX.z-=intensity+clamp(sin((TIME/2. * UV.x)*500.),0.,.1);
 }
