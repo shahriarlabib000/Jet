@@ -20,8 +20,8 @@ uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, re
 uniform float specular : hint_range(0.0, 1.0, 0.01);
 uniform float metallic : hint_range(0.0, 1.0, 0.01);
 
-uniform vec3 uv1_scale;
-uniform vec3 uv1_offset;
+//uniform vec3 uv1_scale;
+//uniform vec3 uv1_offset;
 //uniform vec3 uv2_scale;
 //uniform vec3 uv2_offset;
 

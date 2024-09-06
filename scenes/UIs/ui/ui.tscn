@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca5t28y8hxhvd"]
+[gd_scene load_steps=9 format=3 uid="uid://ca5t28y8hxhvd"]
 
 [ext_resource type="Script" path="res://scenes/UIs/ui/ui.gd" id="1_bbykr"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://scenes/virtual_joystick/virtual_joystick_scene.tscn" id="1_ovo2o"]
-[ext_resource type="Texture2D" uid="uid://bw602kdmmmyb" path="res://icon.svg" id="2_vj01n"]
+[ext_resource type="Texture2D" uid="uid://ddxq33k5hnnr1" path="res://image/left.png" id="3_qm5nk"]
+[ext_resource type="Texture2D" uid="uid://ko6d3s2op6jk" path="res://image/right.png" id="4_ukp1d"]
 [ext_resource type="Texture2D" uid="uid://6a2gjnfvgh43" path="res://image/ground.png" id="4_wmuet"]
+[ext_resource type="Texture2D" uid="uid://dimd0i6qumlhg" path="res://image/camera.png" id="5_awxvu"]
 [ext_resource type="Texture2D" uid="uid://bjrd4bhrpeqtg" path="res://image/gauge.png" id="5_p1qv6"]
+[ext_resource type="Texture2D" uid="uid://d16n7kt3i7joo" path="res://image/shoot.png" id="8_nefyh"]
 
 [node name="ui" type="CanvasLayer"]
 script = ExtResource("1_bbykr")
@@ -18,17 +21,17 @@ scale = Vector2(1.5, 1.5)
 
 [node name="left" type="TouchScreenButton" parent="."]
 position = Vector2(1600, 600)
-texture_normal = ExtResource("2_vj01n")
+texture_normal = ExtResource("3_qm5nk")
 action = "ui_left"
 
 [node name="right" type="TouchScreenButton" parent="."]
 position = Vector2(1800, 600)
-texture_normal = ExtResource("2_vj01n")
+texture_normal = ExtResource("4_ukp1d")
 action = "ui_right"
 
 [node name="camSwitch" type="TouchScreenButton" parent="."]
 position = Vector2(1700, 400)
-texture_normal = ExtResource("2_vj01n")
+texture_normal = ExtResource("5_awxvu")
 action = "camSwitch"
 
 [node name="fps" type="Label" parent="."]
@@ -97,9 +100,8 @@ grow_vertical = 2
 text = "value"
 
 [node name="missile" type="TouchScreenButton" parent="."]
-self_modulate = Color(1, 0, 0, 1)
 position = Vector2(1903, 349)
-texture_normal = ExtResource("2_vj01n")
+texture_normal = ExtResource("8_nefyh")
 action = "missile"
 
 [connection signal="value_changed" from="VSlider" to="." method="_on_v_slider_value_changed"]
