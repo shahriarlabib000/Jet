@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5q3q22tcuj45"]
+[gd_scene load_steps=5 format=3 uid="uid://b5q3q22tcuj45"]
 
 [ext_resource type="Script" path="res://scenes/missile/missile.gd" id="1_v8ic3"]
+[ext_resource type="PackedScene" uid="uid://clndcheoxiyqq" path="res://scenes/trail/trail.tscn" id="2_2oe07"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_q6mlx"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yn4ik"]
 
 [node name="missile" type="RigidBody3D"]
+top_level = true
 gravity_scale = 0.0
 script = ExtResource("1_v8ic3")
 
@@ -21,3 +23,7 @@ mesh = SubResource("CylinderMesh_yn4ik")
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1334)
 target_position = Vector3(0, 0, -30)
+
+[node name="trail" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_2oe07")]
+target = NodePath("..")
+max_count = 300

@@ -18,5 +18,4 @@ dest_files=["res://.godot/imported/hollow.obj-098303255da4f8204c7886a5be9a8a9d.m
 generate_tangents=true
 scale_mesh=Vector3(1, 1, 1)
 offset_mesh=Vector3(0, 0, 0)
-optimize_mesh=true
 force_disable_mesh_compression=false

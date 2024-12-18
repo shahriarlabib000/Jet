@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=4 uid="uid://bwwu1hjv3w6wm"]
+[gd_scene load_steps=104 format=4 uid="uid://bwwu1hjv3w6wm"]
 
 [ext_resource type="Script" path="res://scenes/jet/jet.gd" id="1_2ib58"]
 [ext_resource type="Texture2D" uid="uid://bufotp0axvxd1" path="res://image/smoke.png" id="3_5vosb"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dmytbmjepe47x" path="res://models/lockheed_martin_f-16ef_fighting_falcon_2.jpg" id="5_hxay6"]
 [ext_resource type="Texture2D" uid="uid://bbs7u2o0i6hbv" path="res://models/lockheed_martin_f-16ef_fighting_falcon_3.jpg" id="6_wfisx"]
 [ext_resource type="Shader" path="res://scenes/jet/stream.gdshader" id="8_d28x7"]
+[ext_resource type="PackedScene" uid="uid://clndcheoxiyqq" path="res://scenes/trail/trail.tscn" id="9_nfai6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vbxtw"]
 size = Vector3(5, 1, 15)
@@ -1383,5 +1384,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4506, -1.29153, 1.38218)
 [node name="stream" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.00015521, 0.506468, 9.682)
 mesh = SubResource("ArrayMesh_nnft1")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 9)
+
+[node name="trail" parent="Marker3D" node_paths=PackedStringArray("target") instance=ExtResource("9_nfai6")]
+target = NodePath("..")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
