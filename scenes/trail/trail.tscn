@@ -5,6 +5,9 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eoteo"]
 cull_mode = 2
 shading_mode = 0
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
 
 [node name="trail" type="MeshInstance3D"]
 top_level = true
