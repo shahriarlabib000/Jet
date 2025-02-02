@@ -3,9 +3,12 @@ extends RigidBody3D
 
 signal crashed
 
-@export var rollSpeed:int = 2000
-@export var turnSpeed:int = 1500
+@export var rollForce:int = 150000
+@export var yawForce:int = 150000
+@export var turningForce:int = 200000
 @export var maxTilt:int = 15
+@export var engine_force:int = 500000
+
 @onready var uiScript = preload("res://scenes/UIs/ui/ui.gd")
 @onready var missile = preload("res://scenes/missile/missile.tscn")
 var dir:float = 0
@@ -16,27 +19,27 @@ func _ready() -> void:
 	print(get_viewport().size)
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
-	state.apply_central_force(basis.z * uiScript.speed)
+	state.apply_central_force(basis.z * uiScript.speed/100 * engine_force)
 	
 	
-func _physics_process(delta: float) -> void:
-	dir=Input.get_axis("ui_right","ui_left")
+func _physics_process(_delta: float) -> void:
+	dir = Input.get_axis("ui_right","ui_left")
 	if dir:
 		roll = false
-	apply_torque(basis.y * delta * dir * turnSpeed)
-	if(abs(global_rotation_degrees.z)< maxTilt):
-		apply_torque(basis.z * delta * -dir * turnSpeed)
+	apply_torque(basis.y * dir * turningForce)
+	if(abs(global_rotation_degrees.z) < maxTilt):
+		apply_torque(basis.z * -dir * rollForce)
 		
 	dir=Input.get_axis("ui_down","ui_up")
-	apply_torque(basis.x * delta * dir * turnSpeed)
+	apply_torque(basis.x * dir * yawForce)
 	
 	dir=Input.get_axis("rLeft","rRight")
-	apply_torque(basis.z * delta * dir * rollSpeed)
+	apply_torque(basis.z * dir * rollForce)
 	if dir:
 		roll = true
 		
 	if(global_rotation.z != 0 and !roll):
-		apply_torque(basis.z * -(global_rotation_degrees.z / abs(global_rotation_degrees.z)) * delta * turnSpeed / 3)
+		apply_torque(basis.z * -(global_rotation_degrees.z / abs(global_rotation_degrees.z)) * rollForce)
 	
 	$tppNode.global_rotation.z = 0
 	
@@ -52,3 +55,7 @@ func _on_area_3d_body_entered(body:PhysicsBody3D) -> void:
 	if body.is_in_group("terrain") and uiScript.speed > 500:
 		crashed.emit()
 	
+
+
+func _on_timer_timeout() -> void:
+	print(linear_velocity.length())

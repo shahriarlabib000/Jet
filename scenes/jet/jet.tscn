@@ -1171,13 +1171,11 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [node name="jet" type="RigidBody3D"]
-gravity_scale = 0.0
+mass = 1000.0
 linear_damp = 3.0
 angular_damp = 8.0
 script = ExtResource("1_2ib58")
-rollSpeed = 15000
-turnSpeed = 12000
-maxTilt = 20
+maxTilt = 30
 
 [node name="body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.05751)
@@ -1379,4 +1377,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.184, 0.415, -8.293)
 target = NodePath("..")
 max_count = 500
 
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+one_shot = true
+autostart = true
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
