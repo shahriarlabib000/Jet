@@ -3,12 +3,14 @@ extends RigidBody3D
 
 signal crashed
 
-@export var rollSpeed:int=2000
-@export var turnSpeed:int=1500
-@onready var uiScript=preload("res://scenes/UIs/ui/ui.gd")
-@onready var missile=preload("res://scenes/missile/missile.tscn")
-var dir:float=0
-var roll:bool
+@export var rollSpeed:int = 2000
+@export var turnSpeed:int = 1500
+@export var maxTilt:int = 15
+@onready var uiScript = preload("res://scenes/UIs/ui/ui.gd")
+@onready var missile = preload("res://scenes/missile/missile.tscn")
+var dir:float = 0
+var roll:bool = false
+
 
 func _ready() -> void:
 	print(get_viewport().size)
@@ -20,9 +22,9 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 func _physics_process(delta: float) -> void:
 	dir=Input.get_axis("ui_right","ui_left")
 	if dir:
-		roll=false
+		roll = false
 	apply_torque(basis.y * delta * dir * turnSpeed)
-	if(abs(global_rotation_degrees.z)< 30):
+	if(abs(global_rotation_degrees.z)< 10):
 		apply_torque(basis.z * delta * -dir * turnSpeed)
 		
 	dir=Input.get_axis("ui_down","ui_up")
@@ -31,22 +33,22 @@ func _physics_process(delta: float) -> void:
 	dir=Input.get_axis("rLeft","rRight")
 	apply_torque(basis.z * delta * dir * rollSpeed)
 	if dir:
-		roll=true
+		roll = true
 		
-	if(global_rotation.z!=0 and !roll):
-		apply_torque(basis.z * -(global_rotation_degrees.z/abs(global_rotation_degrees.z)) * delta * turnSpeed/3)
+	if(global_rotation.z != 0 and !roll):
+		apply_torque(basis.z * -(global_rotation_degrees.z / abs(global_rotation_degrees.z)) * delta * turnSpeed / 3)
 	
-	$tppNode.global_rotation.z=0
+	$tppNode.global_rotation.z = 0
 	
 	if Input.is_action_just_pressed("missile"):
-		var inst:RigidBody3D=missile.instantiate()
-		inst.global_position=$missileNode.global_position
+		var inst:RigidBody3D = missile.instantiate()
+		inst.global_position = $missileNode.global_position
 		get_node("/root/main").add_child(inst)
 		
-	$stream.get_active_material(0).set_shader_parameter("intensity",(uiScript.speed/uiScript.max_speed)*5.)
+	$stream.get_active_material(0).set_shader_parameter("intensity",(uiScript.speed/uiScript.max_speed) * 5.0)
 
 
 func _on_area_3d_body_entered(body:PhysicsBody3D) -> void:
-	if body.is_in_group("terrain") and uiScript.speed>500:
+	if body.is_in_group("terrain") and uiScript.speed > 500:
 		crashed.emit()
 	
