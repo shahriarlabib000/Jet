@@ -1172,10 +1172,10 @@ blend_shape_mode = 0
 
 [node name="jet" type="RigidBody3D"]
 mass = 1000.0
+gravity_scale = 0.0
 linear_damp = 3.0
 angular_damp = 8.0
 script = ExtResource("1_2ib58")
-maxTilt = 30
 
 [node name="body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.05751)
@@ -1379,6 +1379,7 @@ max_count = 500
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
+wait_time = 5.0
 one_shot = true
 autostart = true
 

@@ -6,8 +6,8 @@ signal crashed
 @export var rollForce:int = 150000
 @export var yawForce:int = 150000
 @export var turningForce:int = 200000
-@export var maxTilt:int = 15
-@export var engine_force:int = 500000
+@export var maxTilt:int = 20
+@export var engine_force:int = 50000000
 
 @onready var uiScript = preload("res://scenes/UIs/ui/ui.gd")
 @onready var missile = preload("res://scenes/missile/missile.tscn")
@@ -28,7 +28,7 @@ func _physics_process(_delta: float) -> void:
 		roll = false
 	apply_torque(basis.y * dir * turningForce)
 	if(abs(global_rotation_degrees.z) < maxTilt):
-		apply_torque(basis.z * -dir * rollForce)
+		apply_torque(basis.z * -dir * rollForce * 4)
 		
 	dir=Input.get_axis("ui_down","ui_up")
 	apply_torque(basis.x * dir * yawForce)
