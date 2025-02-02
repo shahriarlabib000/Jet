@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 		roll=false
 	apply_torque(basis.y * delta * dir * turnSpeed)
 	if(abs(global_rotation_degrees.z)< 30):
-		apply_torque(basis.z * delta * dir * turnSpeed)
+		apply_torque(basis.z * delta * -dir * turnSpeed)
 		
 	dir=Input.get_axis("ui_down","ui_up")
 	apply_torque(basis.x * delta * dir * turnSpeed)

@@ -21,8 +21,8 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 mesh = SubResource("CylinderMesh_yn4ik")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1334)
-target_position = Vector3(0, 0, -30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.11856)
+target_position = Vector3(0, 0, 30)
 
 [node name="trail" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_2oe07")]
 target = NodePath("..")
