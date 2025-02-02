@@ -1177,6 +1177,7 @@ angular_damp = 8.0
 script = ExtResource("1_2ib58")
 rollSpeed = 15000
 turnSpeed = 12000
+maxTilt = 20
 
 [node name="body" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.05751)
