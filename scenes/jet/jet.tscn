@@ -1,12 +1,12 @@
 [gd_scene load_steps=100 format=4 uid="uid://bwwu1hjv3w6wm"]
 
-[ext_resource type="Script" path="res://scenes/jet/jet.gd" id="1_2ib58"]
+[ext_resource type="Script" uid="uid://bg1f1mqcq6p73" path="res://scenes/jet/jet.gd" id="1_2ib58"]
 [ext_resource type="Texture2D" uid="uid://cmqea154i0muv" path="res://models/lockheed_martin_f-16ef_fighting_falcon_0.jpg" id="3_lcrm5"]
-[ext_resource type="Script" path="res://scenes/jet/firstPerson.gd" id="3_xr34w"]
+[ext_resource type="Script" uid="uid://cf1td6mjusjqi" path="res://scenes/jet/firstPerson.gd" id="3_xr34w"]
 [ext_resource type="Texture2D" uid="uid://b0qxcut7ltmsh" path="res://models/lockheed_martin_f-16ef_fighting_falcon_1.jpg" id="4_dfqd1"]
 [ext_resource type="Texture2D" uid="uid://dmytbmjepe47x" path="res://models/lockheed_martin_f-16ef_fighting_falcon_2.jpg" id="5_hxay6"]
 [ext_resource type="Texture2D" uid="uid://bbs7u2o0i6hbv" path="res://models/lockheed_martin_f-16ef_fighting_falcon_3.jpg" id="6_wfisx"]
-[ext_resource type="Shader" path="res://scenes/jet/stream.gdshader" id="8_d28x7"]
+[ext_resource type="Shader" uid="uid://cw1e7m25005ht" path="res://scenes/jet/stream.gdshader" id="8_d28x7"]
 [ext_resource type="PackedScene" uid="uid://clndcheoxiyqq" path="res://scenes/trail/trail.tscn" id="9_nfai6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vbxtw"]
@@ -1179,31 +1179,32 @@ rollSpeed = 15000
 turnSpeed = 12000
 
 [node name="body" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0772, 1.84908)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.05751)
 shape = SubResource("BoxShape3D_vbxtw")
 
 [node name="wing" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.74964)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.77856)
 shape = SubResource("BoxShape3D_e4iim")
 
 [node name="tppNode" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -12.9585)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="tppNode"]
-spring_length = 30.0
+spring_length = -30.0
 margin = 5.0
 
 [node name="thirdPerson" type="Camera3D" parent="tppNode/SpringArm3D" groups=["cam"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 180, -10)
 current = true
 far = 400000.0
 
 [node name="firstPerson" type="Camera3D" parent="." groups=["cam"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88128, -5.44504)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.88128, 1.29941)
 far = 400000.0
 script = ExtResource("3_xr34w")
 
 [node name="lockheed" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -4)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Sketchfab_model" type="Node3D" parent="lockheed"]
 transform = Transform3D(1, 0, 0, 0, 2.22045e-16, 1, 0, -1, 2.22045e-16, 0, 0, 0)
@@ -1351,26 +1352,27 @@ offset_right = 774.0
 offset_bottom = 201.0
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.65807)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_mdicp")
 
 [node name="missileNode" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4506, -1.29153, 1.38218)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25835, -3.37355, -2.81694)
 
 [node name="stream" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.00015521, 0.506468, 9.682)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0172312, 0.493485, -13.6913)
 mesh = SubResource("ArrayMesh_nnft1")
 
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.184, 0.415, 4.326)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.184, 0.415, -8.29259)
 
 [node name="trail" parent="Marker3D" node_paths=PackedStringArray("target") instance=ExtResource("9_nfai6")]
 target = NodePath("..")
 max_count = 500
 
 [node name="Marker3D2" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.18367, 0.415, 4.326)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.184, 0.415, -8.293)
 
 [node name="trail" parent="Marker3D2" node_paths=PackedStringArray("target") instance=ExtResource("9_nfai6")]
 target = NodePath("..")

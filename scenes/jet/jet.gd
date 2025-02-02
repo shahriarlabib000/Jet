@@ -14,7 +14,7 @@ func _ready() -> void:
 	print(get_viewport().size)
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
-	state.apply_central_force(basis.z * -uiScript.speed)
+	state.apply_central_force(basis.z * uiScript.speed)
 	
 	
 func _physics_process(delta: float) -> void:
@@ -25,11 +25,10 @@ func _physics_process(delta: float) -> void:
 	if(abs(global_rotation_degrees.z)< 30):
 		apply_torque(basis.z * delta * dir * turnSpeed)
 		
-	
-	dir=Input.get_axis("ui_up","ui_down")
+	dir=Input.get_axis("ui_down","ui_up")
 	apply_torque(basis.x * delta * dir * turnSpeed)
 	
-	dir=Input.get_axis("rRight","rLeft")
+	dir=Input.get_axis("rLeft","rRight")
 	apply_torque(basis.z * delta * dir * rollSpeed)
 	if dir:
 		roll=true

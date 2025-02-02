@@ -5,11 +5,11 @@ var crashP=preload("res://scenes/crashP/crash_particle.tscn")
 @onready var audio:AudioStreamPlayer3D=get_node("/root/main/explode")
 
 func _ready() -> void:
-	global_rotation=jet.global_rotation
+	global_rotation = jet.global_rotation
 	apply_central_impulse(global_basis.y * -50)
 	
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
-	state.apply_central_force(basis.z * -500)
+	state.apply_central_force(basis.z * 500)
 	
 func _physics_process(_delta: float) -> void:
 	if global_position.distance_to(jet.global_position) > 100000 :
