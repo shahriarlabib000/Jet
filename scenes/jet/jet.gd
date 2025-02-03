@@ -52,8 +52,9 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_area_3d_body_entered(body:PhysicsBody3D) -> void:
-	if body.is_in_group("terrain") and uiScript.speed > 500:
-		crashed.emit()
+	if body.is_in_group("terrain"):
+		if uiScript.speed > 20:
+			crashed.emit()
 	
 
 

@@ -1186,14 +1186,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.77856)
 shape = SubResource("BoxShape3D_e4iim")
 
 [node name="tppNode" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.543)
 
-[node name="SpringArm3D" type="SpringArm3D" parent="tppNode"]
-spring_length = -30.0
+[node name="Node3D" type="Node3D" parent="tppNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="tppNode/Node3D"]
+spring_length = -15.0
 margin = 5.0
 
-[node name="thirdPerson" type="Camera3D" parent="tppNode/SpringArm3D" groups=["cam"]]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+[node name="thirdPerson" type="Camera3D" parent="tppNode/Node3D/SpringArm3D" groups=["cam"]]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -10)
 current = true
 far = 400000.0
 
@@ -1354,7 +1357,9 @@ offset_bottom = 201.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.65807)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.8527)
 shape = SubResource("BoxShape3D_mdicp")
+debug_color = Color(0.993041, 0.259027, 0.20012, 1)
 
 [node name="missileNode" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25835, -3.37355, -2.81694)
