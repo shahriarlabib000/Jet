@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=4 uid="uid://bwwu1hjv3w6wm"]
+[gd_scene load_steps=101 format=4 uid="uid://bwwu1hjv3w6wm"]
 
 [ext_resource type="Script" uid="uid://bg1f1mqcq6p73" path="res://scenes/jet/jet.gd" id="1_2ib58"]
 [ext_resource type="Texture2D" uid="uid://cmqea154i0muv" path="res://models/lockheed_martin_f-16ef_fighting_falcon_0.jpg" id="3_lcrm5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dmytbmjepe47x" path="res://models/lockheed_martin_f-16ef_fighting_falcon_2.jpg" id="5_hxay6"]
 [ext_resource type="Texture2D" uid="uid://bbs7u2o0i6hbv" path="res://models/lockheed_martin_f-16ef_fighting_falcon_3.jpg" id="6_wfisx"]
 [ext_resource type="Shader" uid="uid://cw1e7m25005ht" path="res://scenes/jet/stream.gdshader" id="8_d28x7"]
+[ext_resource type="AudioStream" uid="uid://bgndfbu3rcc52" path="res://sound/jet-engine-6753.mp3" id="9_cwbm0"]
 [ext_resource type="PackedScene" uid="uid://clndcheoxiyqq" path="res://scenes/trail/trail.tscn" id="9_nfai6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vbxtw"]
@@ -1387,6 +1388,13 @@ process_callback = 0
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="engineSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.544237, -13.0864)
+stream = ExtResource("9_cwbm0")
+max_db = 1.0
+autoplay = true
+max_polyphony = 8888
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

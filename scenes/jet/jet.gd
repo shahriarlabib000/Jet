@@ -9,8 +9,9 @@ signal crashed
 @export var maxTilt:int = 20
 @export var engine_force:int = 50000000
 
-@onready var uiScript = preload("res://scenes/UIs/ui/ui.gd")
-@onready var missile = preload("res://scenes/missile/missile.tscn")
+@onready var uiScript := preload("res://scenes/UIs/ui/ui.gd")
+@onready var missile := preload("res://scenes/missile/missile.tscn")
+@onready var engineSound :AudioStreamPlayer3D = $engineSound
 var dir:float = 0
 var roll:bool = false
 
@@ -20,6 +21,7 @@ func _ready() -> void:
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	state.apply_central_force(basis.z * uiScript.speed/100 * engine_force)
+	engineSound.pitch_scale = uiScript.speed/100
 	
 	
 func _physics_process(_delta: float) -> void:
