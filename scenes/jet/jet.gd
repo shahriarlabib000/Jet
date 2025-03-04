@@ -32,7 +32,7 @@ func _physics_process(_delta: float) -> void:
 	if(abs(global_rotation_degrees.z) < maxTilt):
 		apply_torque(basis.z * -dir * rollForce * 4)
 		
-	dir=Input.get_axis("ui_down","ui_up")
+	dir=Input.get_axis("down","up")
 	apply_torque(basis.x * dir * yawForce)
 	
 	dir=Input.get_axis("rLeft","rRight")

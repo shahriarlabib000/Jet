@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ca5t28y8hxhvd" path="res://scenes/UIs/ui/ui.tscn" id="3_klmi0"]
 [ext_resource type="PackedScene" uid="uid://1tfejxwfsnha" path="res://scenes/UIs/death/death.tscn" id="4_d7ef6"]
 [ext_resource type="AudioStream" uid="uid://cpk2s7fxcjhq0" path="res://sound/explosion.wav" id="5_62u7l"]
-[ext_resource type="PackedScene" uid="uid://bnuukhhrobthy" path="res://scenes/heightmap_terrain.tscn" id="6_ow5a4"]
+[ext_resource type="PackedScene" uid="uid://beu1ptsssywn6" path="res://scenes/terrain.tscn" id="6_ow5a4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hme4p"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -48,7 +48,6 @@ stream = ExtResource("5_62u7l")
 max_db = 3.886
 panning_strength = 0.7
 
-[node name="heightmap Terrain" parent="." instance=ExtResource("6_ow5a4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2000, -700, -2000)
+[node name="terrain" parent="." instance=ExtResource("6_ow5a4")]
 
 [connection signal="crashed" from="jet" to="." method="_on_jet_crashed"]
