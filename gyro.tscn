@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://kf2vn4yohbp3"]
+
+[ext_resource type="Texture2D" uid="uid://6a2gjnfvgh43" path="res://image/ground.png" id="1_xc75y"]
+[ext_resource type="Texture2D" uid="uid://bjrd4bhrpeqtg" path="res://image/gauge.png" id="2_4q02m"]
+
+[node name="gyro" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="ground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -80.0
+offset_top = 81.0
+offset_right = -40.0
+offset_bottom = 121.0
+scale = Vector2(5, 5)
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("1_xc75y")
+expand_mode = 3
+
+[node name="measure" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -80.0
+offset_top = 81.0
+offset_right = -40.0
+offset_bottom = 121.0
+scale = Vector2(5, 5)
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("2_4q02m")
+expand_mode = 3

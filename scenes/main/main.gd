@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("replay"):
 		get_tree().reload_current_scene()
 		
-	$UIs/ui/gyro/ground.rotation = $jet.rotation.z
+	$UIs/gyroLayer/gyro/ground.rotation = $jet.rotation.z
 	#$ui/gyro/measure.position.y += $jet.rotation.x/5
 
 
