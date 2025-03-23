@@ -21,7 +21,7 @@ func _ready() -> void:
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	state.apply_central_force(basis.z * uiScript.speed/100 * engine_force)
-	engineSound.pitch_scale = uiScript.speed/100
+	engineSound.pitch_scale = clampf(uiScript.speed/100,0.0,5000)
 	
 	
 func _physics_process(_delta: float) -> void:
@@ -47,7 +47,7 @@ func _physics_process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("missile"):
 		var inst:RigidBody3D = missile.instantiate()
-		inst.global_position = $missileNode.global_position
+		inst.global_transform = $missileNode.global_transform
 		get_node("/root/main").add_child(inst)
 		
 	$stream.get_active_material(0).set_shader_parameter("intensity",(uiScript.speed/uiScript.max_speed) * 5.0)
