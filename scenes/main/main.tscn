@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bwwu1hjv3w6wm" path="res://scenes/jet/jet.tscn" id="1_0h8xm"]
 [ext_resource type="Script" uid="uid://bu62151p3oiy1" path="res://scenes/main/main.gd" id="1_apctb"]
-[ext_resource type="PackedScene" uid="uid://ca5t28y8hxhvd" path="res://scenes/UIs/ui/ui.tscn" id="3_klmi0"]
+[ext_resource type="PackedScene" uid="uid://ca5t28y8hxhvd" path="res://scenes/UIs/controlUi/controlUi.tscn" id="3_klmi0"]
 [ext_resource type="PackedScene" uid="uid://1tfejxwfsnha" path="res://scenes/UIs/death/death.tscn" id="4_d7ef6"]
 [ext_resource type="AudioStream" uid="uid://cpk2s7fxcjhq0" path="res://sound/explosion.wav" id="5_62u7l"]
 [ext_resource type="PackedScene" uid="uid://kf2vn4yohbp3" path="res://gyro.tscn" id="5_hujxm"]
@@ -39,7 +39,7 @@ far = 400000.0
 
 [node name="UIs" type="Node2D" parent="."]
 
-[node name="ui" parent="UIs" instance=ExtResource("3_klmi0")]
+[node name="ControlUi" parent="UIs" instance=ExtResource("3_klmi0")]
 
 [node name="death" parent="UIs" instance=ExtResource("4_d7ef6")]
 visible = false

@@ -3,6 +3,7 @@ extends CanvasLayer
 
 static var speed:float=0
 static var max_speed:float=0
+
 func _ready():
 	if DisplayServer.has_hardware_keyboard():
 		hide()
