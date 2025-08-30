@@ -23,15 +23,18 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	state.apply_central_force(basis.z * uiScript.speed/100 * engine_force)
 	engineSound.pitch_scale = clampf(uiScript.speed/100,0.0,5000)
 	
-	
-func _physics_process(_delta: float) -> void:
+
+var tilt_err:float = 0
+var prev_tilt_err:float = 0
+func _physics_process(delta: float) -> void:
 	dir = Input.get_axis("ui_right","ui_left")
 	if dir:
 		roll = false
 	apply_torque(basis.y * dir * turningForce)
+	#####
 	if(abs(global_rotation_degrees.z) < maxTilt):
 		apply_torque(basis.z * -dir * rollForce * 4)
-		
+	####
 	dir=Input.get_axis("down","up")
 	apply_torque(basis.x * dir * yawForce)
 	
@@ -39,9 +42,14 @@ func _physics_process(_delta: float) -> void:
 	apply_torque(basis.z * dir * rollForce)
 	if dir:
 		roll = true
-		
-	if(global_rotation.z != 0 and !roll):
-		apply_torque(basis.z * -(global_rotation_degrees.z / abs(global_rotation_degrees.z)) * rollForce)
+	
+	var gbz:float = global_rotation_degrees.z
+	if(!is_zero_approx(gbz) and !roll):
+		tilt_err = abs(gbz)
+		if prev_tilt_err == 0:
+			prev_tilt_err = tilt_err
+		var deriv := (tilt_err - prev_tilt_err) / delta
+		apply_torque(basis.z * -(gbz / abs(gbz))  * deriv * 20)
 	
 	$tppNode.global_rotation.z = 0
 	
