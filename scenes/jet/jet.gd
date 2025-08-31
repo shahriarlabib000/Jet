@@ -49,7 +49,8 @@ func _physics_process(delta: float) -> void:
 		if prev_tilt_err == 0:
 			prev_tilt_err = tilt_err
 		var deriv := (tilt_err - prev_tilt_err) / delta
-		apply_torque(basis.z * -(gbz / abs(gbz))  * deriv * 20)
+		apply_torque(basis.z * -(gbz / abs(gbz))  * deriv * 25)
+		#prev_tilt_err = tilt_err
 	
 	$tppNode.global_rotation.z = 0
 	
