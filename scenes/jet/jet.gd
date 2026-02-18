@@ -32,8 +32,8 @@ func _physics_process(delta: float) -> void:
 		roll = false
 	apply_torque(basis.y * dir * turningForce)
 	#####
-	if(abs(global_rotation_degrees.z) < maxTilt):
-		apply_torque(basis.z * -dir * rollForce * 4)
+	#if(abs(global_rotation_degrees.z) < maxTilt):
+		#apply_torque(basis.z * -dir * rollForce * 4)
 	####
 	dir = Input.get_axis("down","up")
 	apply_torque(basis.x * dir * yawForce)

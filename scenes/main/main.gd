@@ -21,11 +21,12 @@ func _process(_delta: float) -> void:
 
 
 func _on_jet_crashed() -> void:
-	$UIs/ui.hide()
+	$UIs/ControlUi.hide()
 	$UIs/death.show()
 	jet.hide()
-	jet.process_mode = Node.PROCESS_MODE_DISABLED
-	
+	jet.call_deferred("set_process_mode", PROCESS_MODE_DISABLED)
+	#jet.process_mode = Node.PROCESS_MODE_DISABLED
+	 
 	var inst:GPUParticles3D = crashed_particle.instantiate()
 	inst.position = jet.position
 	add_child(inst)

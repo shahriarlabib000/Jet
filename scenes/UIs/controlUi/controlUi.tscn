@@ -46,6 +46,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VSlider" type="VSlider" parent="."]
+unique_name_in_owner = true
 offset_left = 1486.0
 offset_top = 384.0
 offset_right = 1543.0
