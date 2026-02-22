@@ -1,14 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca5t28y8hxhvd"]
+[gd_scene format=3 uid="uid://ca5t28y8hxhvd"]
 
 [ext_resource type="Script" uid="uid://db0snk1mp28pr" path="res://scenes/UIs/controlUi/ControlUi.gd" id="1_bbykr"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://scenes/virtual_joystick/virtual_joystick_scene.tscn" id="1_ovo2o"]
 [ext_resource type="Texture2D" uid="uid://bw602kdmmmyb" path="res://icon.svg" id="2_vj01n"]
 [ext_resource type="Texture2D" uid="uid://b7533yk78s8rv" path="res://image/slider.png" id="6_cru74"]
 
-[node name="controlsUi" type="CanvasLayer"]
+[node name="controlsUi" type="CanvasLayer" unique_id=1159393392]
 script = ExtResource("1_bbykr")
 
-[node name="Virtual Joystick" parent="." instance=ExtResource("1_ovo2o")]
+[node name="Virtual Joystick" parent="." unique_id=1134883206 instance=ExtResource("1_ovo2o")]
 offset_left = 4.0
 offset_top = -454.0
 offset_right = 304.0
@@ -17,64 +17,57 @@ scale = Vector2(1.5, 1.5)
 action_up = "up"
 action_down = "down"
 
-[node name="left" type="TouchScreenButton" parent="."]
-position = Vector2(1600, 600)
+[node name="left" type="TouchScreenButton" parent="." unique_id=245458030]
+position = Vector2(1591, 748)
 texture_normal = ExtResource("2_vj01n")
 action = "ui_left"
 
-[node name="right" type="TouchScreenButton" parent="."]
-position = Vector2(1800, 600)
+[node name="right" type="TouchScreenButton" parent="." unique_id=2109783833]
+position = Vector2(1769, 754)
 texture_normal = ExtResource("2_vj01n")
 action = "ui_right"
 
-[node name="camSwitch" type="TouchScreenButton" parent="."]
-position = Vector2(1700, 400)
+[node name="camSwitch" type="TouchScreenButton" parent="." unique_id=1781803753]
+position = Vector2(1745, 77)
 texture_normal = ExtResource("2_vj01n")
 action = "camSwitch"
 
-[node name="fps" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 30
-text = "hoga"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=996269452]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -508.0
+offset_top = -558.0
+offset_right = -380.0
+offset_bottom = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="VSlider" type="VSlider" parent="."]
+[node name="throttleLabel" type="Label" parent="VBoxContainer" unique_id=1127412761]
 unique_name_in_owner = true
-offset_left = 1486.0
-offset_top = 384.0
-offset_right = 1543.0
-offset_bottom = 1007.0
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "value"
+
+[node name="VSlider" type="VSlider" parent="VBoxContainer" unique_id=1136376968]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
 theme_override_icons/grabber = ExtResource("6_cru74")
 theme_override_icons/grabber_highlight = ExtResource("6_cru74")
 value = 50.0
 tick_count = 50
 ticks_on_borders = true
 
-[node name="Label" type="Label" parent="."]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -679.0
-offset_top = -233.0
-offset_right = -637.0
-offset_bottom = -210.0
-grow_horizontal = 0
-grow_vertical = 2
-text = "value"
-
-[node name="missile" type="TouchScreenButton" parent="."]
+[node name="missile" type="TouchScreenButton" parent="." unique_id=187219724]
 self_modulate = Color(1, 0, 0, 1)
-position = Vector2(1903, 349)
+position = Vector2(1686, 544)
 texture_normal = ExtResource("2_vj01n")
 action = "missile"
 
-[connection signal="value_changed" from="VSlider" to="." method="_on_v_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/VSlider" to="." method="_on_v_slider_value_changed"]

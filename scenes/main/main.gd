@@ -4,7 +4,7 @@ var crashed_particle := preload("res://scenes/crashP/crash_particle.tscn")
 var camidx:int = 1
 
 @onready var cams = get_tree().get_nodes_in_group("cam")
-@onready var jet = $jet
+@onready var jet:Jet = $jet
 
 func _process(_delta: float) -> void:
 	$ground.fov = clamp((100/$ground.position.distance_to(jet.position))* 100,1,70)

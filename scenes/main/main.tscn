@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://mhp42hdmvsdc"]
+[gd_scene format=3 uid="uid://mhp42hdmvsdc"]
 
 [ext_resource type="PackedScene" uid="uid://bwwu1hjv3w6wm" path="res://scenes/jet/jet.tscn" id="1_0h8xm"]
 [ext_resource type="Script" uid="uid://bu62151p3oiy1" path="res://scenes/main/main.gd" id="1_apctb"]
 [ext_resource type="PackedScene" uid="uid://ca5t28y8hxhvd" path="res://scenes/UIs/controlUi/controlUi.tscn" id="3_klmi0"]
+[ext_resource type="Script" uid="uid://bmixtljeaar7s" path="res://scenes/main/fps_label.gd" id="3_yyfjg"]
 [ext_resource type="PackedScene" uid="uid://1tfejxwfsnha" path="res://scenes/UIs/death/death.tscn" id="4_d7ef6"]
 [ext_resource type="AudioStream" uid="uid://cpk2s7fxcjhq0" path="res://sound/explosion.wav" id="5_62u7l"]
 [ext_resource type="PackedScene" uid="uid://kf2vn4yohbp3" path="res://gyro.tscn" id="5_hujxm"]
@@ -21,38 +22,63 @@ sky = SubResource("Sky_ptej4")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="main" type="Node3D"]
+[node name="main" type="Node3D" unique_id=326693617]
 script = ExtResource("1_apctb")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1363784956]
 environment = SubResource("Environment_cehjv")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1891339461]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 
-[node name="jet" parent="." instance=ExtResource("1_0h8xm")]
+[node name="jet" parent="." unique_id=998016985 instance=ExtResource("1_0h8xm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.83147, 0)
 
-[node name="ground" type="Camera3D" parent="." groups=["cam"]]
+[node name="ground" type="Camera3D" parent="." unique_id=506283434 groups=["cam"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40159, 0)
 far = 400000.0
 
-[node name="UIs" type="Node2D" parent="."]
+[node name="UIs" type="Node2D" parent="." unique_id=445351284]
 
-[node name="ControlUi" parent="UIs" instance=ExtResource("3_klmi0")]
+[node name="fps" type="CanvasLayer" parent="UIs" unique_id=488599624]
 
-[node name="death" parent="UIs" instance=ExtResource("4_d7ef6")]
+[node name="Control" type="Control" parent="UIs/fps" unique_id=2041058737]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="fpsLabel" type="Label" parent="UIs/fps/Control" unique_id=602847237]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "67"
+horizontal_alignment = 1
+script = ExtResource("3_yyfjg")
+
+[node name="ControlUi" parent="UIs" unique_id=533837360 instance=ExtResource("3_klmi0")]
+
+[node name="death" parent="UIs" unique_id=399760378 instance=ExtResource("4_d7ef6")]
 visible = false
 
-[node name="gyroLayer" type="CanvasLayer" parent="UIs"]
+[node name="gyroLayer" type="CanvasLayer" parent="UIs" unique_id=1553922345]
 
-[node name="gyro" parent="UIs/gyroLayer" instance=ExtResource("5_hujxm")]
+[node name="gyro" parent="UIs/gyroLayer" unique_id=222322933 instance=ExtResource("5_hujxm")]
 
-[node name="explode" type="AudioStreamPlayer3D" parent="."]
+[node name="explode" type="AudioStreamPlayer3D" parent="." unique_id=1767099723]
 stream = ExtResource("5_62u7l")
 max_db = 3.886
 panning_strength = 0.7
 
-[node name="terrain" parent="." instance=ExtResource("6_ow5a4")]
+[node name="terrain" parent="." unique_id=1011024346 instance=ExtResource("6_ow5a4")]
 
 [connection signal="crashed" from="jet" to="." method="_on_jet_crashed"]
