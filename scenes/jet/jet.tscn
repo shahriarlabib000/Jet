@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=4 uid="uid://bwwu1hjv3w6wm"]
+[gd_scene format=4 uid="uid://bwwu1hjv3w6wm"]
 
 [ext_resource type="Script" uid="uid://bg1f1mqcq6p73" path="res://scenes/jet/jet.gd" id="1_2ib58"]
 [ext_resource type="Texture2D" uid="uid://cmqea154i0muv" path="res://models/lockheed_martin_f-16ef_fighting_falcon_0.jpg" id="3_lcrm5"]
@@ -1149,7 +1149,7 @@ shader_parameter/colorA = Color(1, 0.635294, 0, 1)
 shader_parameter/colorB = Color(0, 0, 0.913725, 1)
 shader_parameter/intensity = 0.0
 shader_parameter/roughness = 1.0
-shader_parameter/metallic_texture_channel = null
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
 shader_parameter/specular = 0.5
 shader_parameter/metallic = 0.0
 shader_parameter/uv1_scale = Vector3(1, 1, 1)
@@ -1171,225 +1171,219 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[node name="jet" type="RigidBody3D"]
+[node name="jet" type="RigidBody3D" unique_id=770139305]
 mass = 1000.0
 gravity_scale = 0.0
 linear_damp = 3.0
 angular_damp = 8.0
 script = ExtResource("1_2ib58")
 
-[node name="body" type="CollisionShape3D" parent="."]
+[node name="body" type="CollisionShape3D" parent="." unique_id=846854216]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.05751)
 shape = SubResource("BoxShape3D_vbxtw")
 
-[node name="wing" type="CollisionShape3D" parent="."]
+[node name="wing" type="CollisionShape3D" parent="." unique_id=707279313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.77856)
 shape = SubResource("BoxShape3D_e4iim")
 
-[node name="tppNode" type="Node3D" parent="."]
+[node name="tppNode" type="Node3D" parent="." unique_id=1220022173]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.543)
 
-[node name="Node3D" type="Node3D" parent="tppNode"]
+[node name="Node3D" type="Node3D" parent="tppNode" unique_id=1674645437]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 
-[node name="SpringArm3D" type="SpringArm3D" parent="tppNode/Node3D"]
+[node name="SpringArm3D" type="SpringArm3D" parent="tppNode/Node3D" unique_id=1967327663]
 spring_length = -15.0
 margin = 5.0
 
-[node name="thirdPerson" type="Camera3D" parent="tppNode/Node3D/SpringArm3D" groups=["cam"]]
+[node name="thirdPerson" type="Camera3D" parent="tppNode/Node3D/SpringArm3D" unique_id=210830421 groups=["cam"]]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -10)
 current = true
 far = 400000.0
 
-[node name="firstPerson" type="Camera3D" parent="." groups=["cam"]]
+[node name="firstPerson" type="Camera3D" parent="." unique_id=15368664 groups=["cam"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.88128, 1.29941)
 far = 400000.0
 script = ExtResource("3_xr34w")
 
-[node name="lockheed" type="Node3D" parent="."]
+[node name="lockheed" type="Node3D" parent="." unique_id=1656310609]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="Sketchfab_model" type="Node3D" parent="lockheed"]
+[node name="Sketchfab_model" type="Node3D" parent="lockheed" unique_id=2005147672]
 transform = Transform3D(1, 0, 0, 0, 2.22045e-16, 1, 0, -1, 2.22045e-16, 0, 0, 0)
 
-[node name="root" type="Node3D" parent="lockheed/Sketchfab_model"]
+[node name="root" type="Node3D" parent="lockheed/Sketchfab_model" unique_id=64699797]
 
-[node name="GLTF_SceneRootNode" type="Node3D" parent="lockheed/Sketchfab_model/root"]
+[node name="GLTF_SceneRootNode" type="Node3D" parent="lockheed/Sketchfab_model/root" unique_id=1785032857]
 transform = Transform3D(1, 0, 0, 0, 2.22045e-16, -1, 0, 1, 2.22045e-16, 0, 0, 0)
 
-[node name="F16 E_2" type="Node3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode"]
+[node name="F16 E_2" type="Node3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode" unique_id=1246780805]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44854, 0.395327, 0)
 
-[node name="Object_4" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_4" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=864154053]
 mesh = SubResource("ArrayMesh_67n5g")
 skeleton = NodePath("")
 
-[node name="Object_5" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_5" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=510533222]
 mesh = SubResource("ArrayMesh_1bq1q")
 skeleton = NodePath("")
 
-[node name="Object_6" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_6" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=1164069910]
 mesh = SubResource("ArrayMesh_8ptxj")
 skeleton = NodePath("")
 
-[node name="Object_7" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_7" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=2027334716]
 mesh = SubResource("ArrayMesh_tayp4")
 skeleton = NodePath("")
 
-[node name="Object_8" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_8" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=1676613457]
 mesh = SubResource("ArrayMesh_hxiku")
 skeleton = NodePath("")
 
-[node name="Object_9" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_9" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=1388513509]
 mesh = SubResource("ArrayMesh_d26ax")
 skeleton = NodePath("")
 
-[node name="Object_10" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_10" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=1404913396]
 mesh = SubResource("ArrayMesh_4rkqw")
 skeleton = NodePath("")
 
-[node name="Object_11" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_11" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=399646270]
 mesh = SubResource("ArrayMesh_cvakn")
 skeleton = NodePath("")
 
-[node name="Object_12" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_12" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=1351303132]
 mesh = SubResource("ArrayMesh_uemr0")
 skeleton = NodePath("")
 
-[node name="Object_13" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_13" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=436466010]
 mesh = SubResource("ArrayMesh_filaq")
 skeleton = NodePath("")
 
-[node name="Object_14" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_14" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=1419293739]
 mesh = SubResource("ArrayMesh_ueo0n")
 skeleton = NodePath("")
 
-[node name="Object_15" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_15" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=48157475]
 mesh = SubResource("ArrayMesh_wuml2")
 skeleton = NodePath("")
 
-[node name="Object_16" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_16" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=661264793]
 mesh = SubResource("ArrayMesh_l6ilj")
 skeleton = NodePath("")
 
-[node name="Object_17" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_17" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=653286241]
 mesh = SubResource("ArrayMesh_37ebg")
 skeleton = NodePath("")
 
-[node name="Object_18" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_18" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=300656566]
 mesh = SubResource("ArrayMesh_8py7l")
 skeleton = NodePath("")
 
-[node name="Object_19" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_19" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=682678364]
 mesh = SubResource("ArrayMesh_vkhd8")
 skeleton = NodePath("")
 
-[node name="Object_20" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_20" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=1675103175]
 mesh = SubResource("ArrayMesh_1020w")
 skeleton = NodePath("")
 
-[node name="Object_21" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_21" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=1885724284]
 mesh = SubResource("ArrayMesh_2makr")
 skeleton = NodePath("")
 
-[node name="cover" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="cover" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=1176972521]
 visible = false
 mesh = SubResource("ArrayMesh_6g13d")
 skeleton = NodePath("")
 
-[node name="Object_23" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_23" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=234759603]
 mesh = SubResource("ArrayMesh_1jung")
 skeleton = NodePath("")
 
-[node name="Object_24" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_24" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=1934853438]
 mesh = SubResource("ArrayMesh_ly2yl")
 skeleton = NodePath("")
 
-[node name="Object_25" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_25" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=1337435225]
 mesh = SubResource("ArrayMesh_5o085")
 skeleton = NodePath("")
 
-[node name="Object_26" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_26" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=1601081175]
 mesh = SubResource("ArrayMesh_w3uvj")
 skeleton = NodePath("")
 
-[node name="Object_27" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_27" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=1194876403]
 mesh = SubResource("ArrayMesh_ropkt")
 skeleton = NodePath("")
 
-[node name="Object_28" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_28" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=205300778]
 mesh = SubResource("ArrayMesh_hbfy2")
 skeleton = NodePath("")
 
-[node name="Object_29" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_29" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=1939364475]
 mesh = SubResource("ArrayMesh_hippn")
 skeleton = NodePath("")
 
-[node name="Object_30" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_30" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=1534625401]
 mesh = SubResource("ArrayMesh_kpt61")
 skeleton = NodePath("")
 
-[node name="Object_31" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_31" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=1793729536]
 mesh = SubResource("ArrayMesh_q2xqx")
 skeleton = NodePath("")
 
-[node name="Object_32" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_32" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=926742987]
 mesh = SubResource("ArrayMesh_mhkhh")
 skeleton = NodePath("")
 
-[node name="Object_33" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2"]
+[node name="Object_33" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_2" unique_id=983252555]
 mesh = SubResource("ArrayMesh_pur1m")
 skeleton = NodePath("")
 
-[node name="F16 E_049_3" type="Node3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode"]
+[node name="F16 E_049_3" type="Node3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode" unique_id=1968525479]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44854, 0.395327, 0)
 
-[node name="Object_35" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_049_3"]
+[node name="Object_35" type="MeshInstance3D" parent="lockheed/Sketchfab_model/root/GLTF_SceneRootNode/F16 E_049_3" unique_id=459101957]
 mesh = SubResource("ArrayMesh_50r35")
 skeleton = NodePath("")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1226249463]
 offset_left = 734.0
 offset_top = 178.0
 offset_right = 774.0
 offset_bottom = 201.0
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=1445957879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.65807)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2064688778]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.8527)
 shape = SubResource("BoxShape3D_mdicp")
 debug_color = Color(0.993041, 0.259027, 0.20012, 1)
 
-[node name="missileNode" type="Node3D" parent="."]
+[node name="missileNode" type="Node3D" parent="." unique_id=604758788]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25835, -3.37355, -2.81694)
 
-[node name="stream" type="MeshInstance3D" parent="."]
+[node name="stream" type="MeshInstance3D" parent="." unique_id=982273980]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0172312, 0.493485, -13.6913)
 mesh = SubResource("ArrayMesh_nnft1")
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1264587754]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.184, 0.415, -8.29259)
 
-[node name="trail" parent="Marker3D" node_paths=PackedStringArray("target") instance=ExtResource("9_nfai6")]
+[node name="trail" parent="Marker3D" unique_id=1337005168 node_paths=PackedStringArray("target") instance=ExtResource("9_nfai6")]
 target = NodePath("..")
 max_count = 500
 
-[node name="Marker3D2" type="Marker3D" parent="."]
+[node name="Marker3D2" type="Marker3D" parent="." unique_id=1814123981]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.184, 0.415, -8.293)
 
-[node name="trail" parent="Marker3D2" node_paths=PackedStringArray("target") instance=ExtResource("9_nfai6")]
+[node name="trail" parent="Marker3D2" unique_id=671868139 node_paths=PackedStringArray("target") instance=ExtResource("9_nfai6")]
 target = NodePath("..")
 max_count = 500
 
-[node name="Timer" type="Timer" parent="."]
-process_callback = 0
-wait_time = 5.0
-one_shot = true
-autostart = true
-
-[node name="engineSound" type="AudioStreamPlayer3D" parent="."]
+[node name="engineSound" type="AudioStreamPlayer3D" parent="." unique_id=257711880]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.544237, -13.0864)
 stream = ExtResource("9_cwbm0")
 max_db = 1.0
@@ -1397,4 +1391,3 @@ autoplay = true
 max_polyphony = 8888
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

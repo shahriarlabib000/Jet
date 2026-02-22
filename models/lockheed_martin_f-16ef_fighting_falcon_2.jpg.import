@@ -3,9 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmytbmjepe47x"
-path.s3tc="res://.godot/imported/lockheed_martin_f-16ef_fighting_falcon_2.jpg-0b30e0f8fe17d8432a5504d14637fae4.s3tc.ctex"
+path.etc2="res://.godot/imported/lockheed_martin_f-16ef_fighting_falcon_2.jpg-0b30e0f8fe17d8432a5504d14637fae4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +15,7 @@ generator_parameters={
 [deps]
 
 source_file="res://models/lockheed_martin_f-16ef_fighting_falcon_2.jpg"
-dest_files=["res://.godot/imported/lockheed_martin_f-16ef_fighting_falcon_2.jpg-0b30e0f8fe17d8432a5504d14637fae4.s3tc.ctex"]
+dest_files=["res://.godot/imported/lockheed_martin_f-16ef_fighting_falcon_2.jpg-0b30e0f8fe17d8432a5504d14637fae4.etc2.ctex"]
 
 [params]
 
