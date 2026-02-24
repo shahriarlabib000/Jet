@@ -79,6 +79,6 @@ stream = ExtResource("5_62u7l")
 max_db = 3.886
 panning_strength = 0.7
 
-[node name="terrain" parent="." unique_id=1011024346 instance=ExtResource("6_ow5a4")]
+[node name="terrain" parent="." unique_id=1473890643 instance=ExtResource("6_ow5a4")]
 
 [connection signal="crashed" from="jet" to="." method="_on_jet_crashed"]
